@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <script src="js/jquery.min_3.2.1.js"></script>
+    <style>
+        .wrap{height: 260px;width: 700px;border: 1px solid #ccc;margin: 100px auto;display: flex;justify-content: space-around}
+        .picBox{height: 260px;width: 100px;overflow: hidden;position: relative;}
+        img{position: absolute}
+        p{width: 20px;position: absolute;top:20px;left:40px;margin-right:10px }
+        .shade{height: 260px;width: 400px;background: rgba(0,0,0,0.5);display: inline-block;position: absolute;z-index: 1;font-size: 20px;color: white;text-align: center}
+    </style>
+</head>
+<body>
+  <div class="wrap">
+
+      <div class="picBox"><div class="shade" style="top:0;left:0px"><p>情侣酒店</p></div><img src="images/20150120_ifold2.jpg" alt="" style="top:0;left: -150px"/></div>
+      <div class="picBox"><div class="shade" style="top:0;left:0px"><p>设计师酒店</p></div><img src="images/20150120_ifold3.jpg" alt=""style="top:0;left: -150px"/></div>
+      <div class="picBox"><div class="shade" style="top:0;left:0px"><p>青年旅社</p></div><img src="images/20150120_ifold4.jpg" alt=""style="top:0;left: -150px"/></div>
+      <div class="picBox"><div class="shade" style="top:0;left:0px"><p>特色客栈</p></div><img src="images/20150120_ifold5.jpg" alt=""style="top:0;left: -150px"/></div>
+      <div class="picBox"><div class="shade" style="top:0;left:0px"><p>海岛酒店</p></div><img src="images/20150120_ifold6.jpg" alt=""style="top:0;left: -150px"/></div>
+      <div class="picBox"><div class="shade" style="top:0;left:0px"><p>海外温泉</p></div><img src="images/20150120_ifold7.jpg" alt=""style="top:0;left: -150px"/></div>
+      <div class="picBox"><div class="shade" style="top:0;left:0px"><p>园林酒店</p></div><img src="images/20150422_ifold1.jpg" alt=""style="top:0;left: -150px"/></div>
+
+  </div>
+</body>
+</html>
+<script>
+    $(function (){
+        $(".shade").mouseover(function () {
+
+            $(this).css("display","none");
+            $(this).parent(".picBox").animate({"width":500},{"queue":false});
+            $(this).parent(".picBox").siblings(".picBox").animate({"width":80},{"queue":false});
+            $(this).next("img").animate({"left":0},{"queue":false});
+            $("p").css("left","20px");
+
+
+
+        })
+        $("img").mouseout(function () {
+            $(this).animate({"left":-150},{"queue":false});
+            $(".shade").css("display","block");
+            $(this).parent(".picBox").animate({"width":100},{"queue":false});
+            $(this).parent(".picBox").siblings(".picBox").animate({"width":100},{"queue":false});
+            $("p").css("left","40px");
+
+        })
+
+
+    })
+</script>
