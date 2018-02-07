@@ -1,2 +1,2 @@
 # elong
-this is a effect for elong
+this is an effect for elong
